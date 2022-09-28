@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../settings.dart';
 class edit_user_profile extends StatefulWidget {
@@ -8,6 +9,20 @@ class edit_user_profile extends StatefulWidget {
 }
 
 class _edit_user_profileState extends State<edit_user_profile> {
+  final _emailController = TextEditingController();
+  Future passwordReset() async{
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(
+          email: _emailController.text.trim());
+    } on FirebaseAuthException catch (error){
+      print(error);
+      showDialog(context: context,
+          builder: (context) =>AlertDialog(
+            content: Text(error.message.toString()),
+          )
+      );
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,7 +95,7 @@ class _edit_user_profileState extends State<edit_user_profile> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ElevatedButton(onPressed: (){},
+                  ElevatedButton(onPressed: passwordReset,
                       child: Text ('Change Password'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.teal

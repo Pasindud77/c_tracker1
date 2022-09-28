@@ -1,5 +1,5 @@
 import 'package:c_tracker/inPages/society.dart';
-import 'package:c_tracker/inPages/feed.dart';
+import 'package:c_tracker/inPages/history.dart';
 import 'package:c_tracker/inPages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -20,7 +20,7 @@ class _navBarState extends State<navBar> {
  }
  final List <Widget> _inPages = [
    tracker(),
-   feed(),
+   history(),
    society(),
    settings(),
  ];
@@ -42,7 +42,7 @@ class _navBarState extends State<navBar> {
             GButton(icon: Icons.track_changes,
             text: 'Tracker',),
             GButton(icon: Icons.feed,
-            text: 'Feed',),
+            text: 'History',),
             GButton(icon: Icons.people,
             text: 'Society',),
             GButton(icon: Icons.settings,

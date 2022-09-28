@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -14,6 +15,7 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   final _auth = FirebaseAuth.instance;
+  String? imageUri;
   String? errorMessage;
   final _formKey = GlobalKey<FormState>();
   final userNameEditingController = new TextEditingController();
@@ -161,7 +163,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         child: Center(
                             child: GestureDetector(
                               onTap: (){
-                                signUp(emailEditingController.text, passwordEditingController.text);
+                                signUp(emailEditingController.text, passwordEditingController.text,);
+
                               },
                               child: Container(
                                 child: Text('Sign Up',
@@ -203,15 +206,21 @@ class _SignupScreenState extends State<SignupScreen> {
       ),
     );
   }
-  Future signUp(String email, String password) async {
+  Future signUp(String email, String password, ) async {
     if (_formKey.currentState!.validate()) {
       try {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password)
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailEditingController.text, password: passwordEditingController.text)
             .then((uid) => {
           Fluttertoast.showToast(msg: "New User Created"),
           Navigator.of(context).pushReplacement(
               MaterialPageRoute(builder: (context) => navBar())),
         });
+        await FirebaseFirestore.instance.collection('users').add({
+          'email':emailEditingController.text,
+          'username':userNameEditingController.text,
+          'image': imageUri
+        });
+
       } on FirebaseAuthException catch (error) {
         switch (error.code) {
           case "invalid-email":

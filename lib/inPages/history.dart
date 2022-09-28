@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-class feed extends StatefulWidget {
-  const feed({Key? key}) : super(key: key);
+class history extends StatefulWidget {
+  const history({Key? key}) : super(key: key);
 
   @override
-  State<feed> createState() => _feedState();
+  State<history> createState() => _historyState();
 }
 
-class _feedState extends State<feed> {
+class _historyState extends State<history> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: (
             Text(
-                'Feed',style: TextStyle(fontWeight: FontWeight.bold,
+                'History',style: TextStyle(fontWeight: FontWeight.bold,
                 fontSize: 50,
                 color: Colors.teal)
             )
