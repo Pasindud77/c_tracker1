@@ -30,37 +30,49 @@ class _ForgetPasswordState extends State<ForgetPassword> {
         backgroundColor: Colors.teal,
         title: Text('Forget Password'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Enter Your Email and we wil send a Password Reset Link to your email',
-            textAlign:TextAlign.center,
-              style: TextStyle(fontSize: 15),
-            ),
-            SizedBox(height: 20,),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: TextField(
-                controller: _emailController,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.email),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.teal),
-                       borderRadius: BorderRadius.circular(12)
-                    ),
-                    contentPadding: EdgeInsets.all(10.0),
-                    hintText: "Email"
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFF7CFF6B),
+                Color(0xFF0A8270)
+              ],
+              begin: Alignment.bottomRight,
+              end: Alignment.topLeft,
+            )
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Enter Your Email and we wil send a Password Reset Link to your email',
+              textAlign:TextAlign.center,
+                style: TextStyle(fontSize: 15),
+              ),
+              SizedBox(height: 20,),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TextField(
+                  controller: _emailController,
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.email),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.teal),
+                         borderRadius: BorderRadius.circular(12)
+                      ),
+                      contentPadding: EdgeInsets.all(10.0),
+                      hintText: "Email"
+                  ),
                 ),
               ),
-            ),
-            MaterialButton(onPressed: passwordReset,
-              child: Text('Reset Password'),
-              color: Colors.teal,
-              textColor: Colors.white,
-            )
-          ],
+              MaterialButton(onPressed: passwordReset,
+                child: Text('Reset Password'),
+                color: Colors.teal,
+                textColor: Colors.white,
+              )
+            ],
+          ),
         ),
       ),
     );

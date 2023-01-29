@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.c_tracker">
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- Provide required visibility configuration for API level 30 and above -->
@@ -24,9 +25,11 @@
         </intent>
     </queries>
    <application
+        android:usesCleartextTraffic="true"
         android:label="c_tracker"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+       tools:targetApi="m">
         <activity
             android:name=".MainActivity"
             android:exported="true"

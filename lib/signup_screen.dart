@@ -126,78 +126,90 @@ class _SignupScreenState extends State<SignupScreen> {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(36.0),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Text("Register",
-                        style: TextStyle(fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.teal),),
-                    ),
-                    Container(
-                      child: Image.asset('images/Login.png',height: 250,),
-                    ),
-                    SizedBox(height: 10,),
-                    userNameField,
-                    SizedBox(height: 20),
-                    emailField,
-                    SizedBox(height: 20),
-                    passwordField,
-                    SizedBox(height: 20),
-                    confirmPasswordField,
-                    SizedBox(height: 20,),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                      child: Container(
-                        padding: const EdgeInsets.all(20.0),
-                        decoration: BoxDecoration(color: Colors.teal,
-                            borderRadius: BorderRadius.circular(12)
-                        ),
-                        child: Center(
-                            child: GestureDetector(
-                              onTap: (){
-                                signUp(emailEditingController.text, passwordEditingController.text,);
+        child: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xFF7CFF6B),
+                  Color(0xFF0A8270)
+                ],
+                begin: Alignment.bottomRight,
+                end: Alignment.topLeft,
+              )
+          ),
+          child: Center(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(36.0),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Text("Register",
+                          style: TextStyle(fontWeight: FontWeight.bold,
+                              fontSize: 25,
+                              color: Colors.white),),
+                      ),
+                      Container(
+                        child: Image.asset('images/Login.png',height: 250,),
+                      ),
+                      SizedBox(height: 10,),
+                      userNameField,
+                      SizedBox(height: 20),
+                      emailField,
+                      SizedBox(height: 20),
+                      passwordField,
+                      SizedBox(height: 20),
+                      confirmPasswordField,
+                      SizedBox(height: 20,),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                        child: Container(
+                          padding: const EdgeInsets.all(20.0),
+                          decoration: BoxDecoration(color: Colors.teal,
+                              borderRadius: BorderRadius.circular(12)
+                          ),
+                          child: Center(
+                              child: GestureDetector(
+                                onTap: (){
+                                  signUp(emailEditingController.text, passwordEditingController.text,);
 
-                              },
-                              child: Container(
-                                child: Text('Sign Up',
-                                  style: TextStyle(color: Colors.white,
-                                    fontSize: 18,fontWeight: FontWeight.bold,
+                                },
+                                child: Container(
+                                  child: Text('Sign Up',
+                                    style: TextStyle(color: Colors.white,
+                                      fontSize: 18,fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            )
+                              )
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: 10,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('Already have an account ?'),
-                        TextButton(
-                          child: Text(' Login!',style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
-                          ),),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => LoginScreen(),
-                                ));
-                          },
-                        )
-                      ],
-                    ),
-                  ],
+                      SizedBox(height: 10,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Already have an account ?'),
+                          TextButton(
+                            child: Text(' Login!',style: TextStyle(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                            ),),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => LoginScreen(),
+                                  ));
+                            },
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

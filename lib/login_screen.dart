@@ -73,107 +73,116 @@ class _LoginScreenState extends State<LoginScreen> {
         ));
     return Scaffold(
     backgroundColor: Colors.white,
-      body: Center(
-        child: SingleChildScrollView(
-        child: Container(
-          color: Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.all(36.0),
-                child: Form(
-                key: _formKey,
-                   child: Column(
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFF7CFF6B),
+                Color(0xFF0A8270)
+              ],
+              begin: Alignment.bottomRight,
+              end: Alignment.topLeft,
+            )
+        ),
+        child: Center(
+          child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(36.0),
+              child: Form(
+              key: _formKey,
+                 child: Column(
 
 
-                       children: <Widget>[
-                         Text("C-Tracker",
-                           style: TextStyle(fontWeight: FontWeight.bold,
-                               fontSize: 50,
-                               color: Colors.teal),),
-                         Padding(
-                           padding: const EdgeInsets.all(8.0),
-                           child: Text("Welcome ! Lets Save The Planet Together",
-                             style: TextStyle(fontWeight: FontWeight.normal,
-                                 fontSize: 15,
-                                 color: Colors.teal),),
-                         ),
-                          SizedBox(
-                          height: 200,
-                            child: Image.asset(
-                             "images/Login.png",
-                           fit: BoxFit.contain,
-                                  )),
-                            SizedBox(height: 45),
-                         emailField,
-                         SizedBox(height: 25),
-                           passwordField,
-                         GestureDetector(
-                           onTap: (){
-                             Navigator.push(
-                                 context,
-                                 MaterialPageRoute(
-                                 builder: (context) => ForgetPassword())
-                             );
-                           },
-                           child: Row(
-                             mainAxisAlignment: MainAxisAlignment.end,
-                             children: [
-                               Padding(
-                                 padding: const EdgeInsets.only(right:15.0),
-                                 child: Text("Forgot password?",style: TextStyle(color: Colors.blue),),
-                               ),
-                             ],
-                           ),
-                         ),
-                         SizedBox(height: 20,),
-                         Padding(
-                           padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                           child: Container(
-                             padding: const EdgeInsets.all(20.0),
-                             decoration: BoxDecoration(color: Colors.teal,
-                                 borderRadius: BorderRadius.circular(12)
-                             ),
-                             child: Center(
-                                 child: GestureDetector(
-                                   onTap: (){
-                                     signIn(emailController.text, passwordController.text);
-                                   },
-                                   child: Container(
-                                     child: Text('Log in',
-                                       style: TextStyle(color: Colors.white,
-                                         fontSize: 18,fontWeight: FontWeight.bold,
-                                       ),
-                                     ),
-                                   ),
-                                 )
-                             ),
-                           ),
-                         ),
-                         SizedBox(height: 20,),
-                         Row(
-                           mainAxisAlignment: MainAxisAlignment.center,
+                     children: <Widget>[
+                       Text("C-Tracker",
+                         style: TextStyle(fontWeight: FontWeight.bold,
+                             fontSize: 50,
+                             color: Colors.white),),
+                       Padding(
+                         padding: const EdgeInsets.all(8.0),
+                         child: Text("Welcome ! Lets Save The Planet Together",
+                           style: TextStyle(fontWeight: FontWeight.normal,
+                               fontSize: 15,
+                               color: Colors.white),),
+                       ),
+                        SizedBox(
+                        height: 200,
+                          child: Image.asset(
+                           "images/Login.png",
+                         fit: BoxFit.contain,
+                                )),
+                          SizedBox(height: 45),
+                       emailField,
+                       SizedBox(height: 25),
+                         passwordField,
+                       GestureDetector(
+                         onTap: (){
+                           Navigator.push(
+                               context,
+                               MaterialPageRoute(
+                               builder: (context) => ForgetPassword())
+                           );
+                         },
+                         child: Row(
+                           mainAxisAlignment: MainAxisAlignment.end,
                            children: [
-                             Text('Not a Memeber yet ?'),
-                             TextButton(
-                               child: Text(' Register now!',style: TextStyle(
-                                 color: Colors.blue,
-                                 fontWeight: FontWeight.bold,
-                               ),),
-                               onPressed: () {
-                                 Navigator.push(
-                                     context,
-                                     MaterialPageRoute(
-                                       builder: (context) => SignupScreen(),
-                                     ));
-                               },
-                             )
+                             Padding(
+                               padding: const EdgeInsets.only(right:15.0),
+                               child: Text("Forgot password?",style: TextStyle(color: Colors.blue),),
+                             ),
                            ],
                          ),
-                   ],
-                ),
-             ),
-            ),
+                       ),
+                       SizedBox(height: 20,),
+                       Padding(
+                         padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                         child: Container(
+                           padding: const EdgeInsets.all(20.0),
+                           decoration: BoxDecoration(color: Colors.teal,
+                               borderRadius: BorderRadius.circular(12)
+                           ),
+                           child: Center(
+                               child: GestureDetector(
+                                 onTap: (){
+                                   signIn(emailController.text, passwordController.text);
+                                 },
+                                 child: Container(
+                                   child: Text('Log in',
+                                     style: TextStyle(color: Colors.white,
+                                       fontSize: 18,fontWeight: FontWeight.bold,
+                                     ),
+                                   ),
+                                 ),
+                               )
+                           ),
+                         ),
+                       ),
+                       SizedBox(height: 20,),
+                       Row(
+                         mainAxisAlignment: MainAxisAlignment.center,
+                         children: [
+                           Text('Not a Memeber yet ?'),
+                           TextButton(
+                             child: Text(' Register now!',style: TextStyle(
+                               color: Colors.blue,
+                               fontWeight: FontWeight.bold,
+                             ),),
+                             onPressed: () {
+                               Navigator.push(
+                                   context,
+                                   MaterialPageRoute(
+                                     builder: (context) => SignupScreen(),
+                                   ));
+                             },
+                           )
+                         ],
+                       ),
+                 ],
+              ),
+           ),
           ),
-       ),
+         ),
+        ),
       ),
     );
   }

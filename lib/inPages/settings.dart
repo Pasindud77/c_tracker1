@@ -23,51 +23,63 @@ final user = FirebaseAuth.instance.currentUser!;
         leading:Icon(Icons.settings) ,
         title: Text('Settings'),
       ),
-        body: ListView(
-          children: [
-            ListTile(
-              leading:Icon (Icons.settings),
-              title: Text('Edit User Profile'),
-              subtitle: Text('go to the Edit User Profile'),
-              trailing: Icon(Icons.arrow_forward),
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => edit_user_profile()));
-              },
+        body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xFF7CFF6B),
+                  Color(0xFF0A8270)
+                ],
+                begin: Alignment.bottomRight,
+                end: Alignment.topLeft,
+              )
+          ),
+          child: ListView(
+            children: [
+              ListTile(
+                leading:Icon (Icons.settings),
+                title: Text('Edit User Profile'),
+                subtitle: Text('go to the Edit User Profile'),
+                trailing: Icon(Icons.arrow_forward),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => edit_user_profile()));
+                },
 
-            ),
-            Divider(),
-            ListTile(
-              leading:Icon (Icons.filter_frames),
-              title: Text('Tearms and conditions'),
-              subtitle: Text('read tearms and conditions'),
-              trailing: Icon(Icons.arrow_forward),
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => tearms()));
-              },
-            ),
-            Divider(),
-            ListTile(
-              leading:Icon (Icons.rate_review),
-              title: Text('Rate'),
-              subtitle: Text('Rate your experience'),
-              trailing: Icon(Icons.arrow_forward),
+              ),
+              Divider(),
+              ListTile(
+                leading:Icon (Icons.filter_frames),
+                title: Text('Tearms and conditions'),
+                subtitle: Text('read tearms and conditions'),
+                trailing: Icon(Icons.arrow_forward),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => tearms()));
+                },
+              ),
+              Divider(),
+              ListTile(
+                leading:Icon (Icons.rate_review),
+                title: Text('Rate'),
+                subtitle: Text('Rate your experience'),
+                trailing: Icon(Icons.arrow_forward),
 
-            ),
-            Divider(),
-            ListTile(
-              leading:Icon (Icons.logout),
-              title: Text('Logout'),
-              subtitle: Text('Logout from your profile'),
-              trailing: Icon(Icons.arrow_forward),
-              onTap: (){
-                FirebaseAuth.instance.signOut();
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => LoginScreen(),
-                ));
-              },
-            ),
-          ],
-          padding: EdgeInsets.all(10),
+              ),
+              Divider(),
+              ListTile(
+                leading:Icon (Icons.logout),
+                title: Text('Logout'),
+                subtitle: Text('Logout from your profile'),
+                trailing: Icon(Icons.arrow_forward),
+                onTap: (){
+                  FirebaseAuth.instance.signOut();
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => LoginScreen(),
+                  ));
+                },
+              ),
+            ],
+            padding: EdgeInsets.all(10),
+          ),
         )
     );
   }

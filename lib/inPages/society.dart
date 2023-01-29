@@ -17,66 +17,79 @@ class _societyState extends State<society> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar (
-      title: Text('SOCIETIES'),
+      title: Text('Societies'),
+        backgroundColor: Colors.teal,
         centerTitle: true,
         leading:Icon(Icons.people) ,
       ),
-      body: ListView(
-           children: [
-             ListTile(
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFF7CFF6B),
+                Color(0xFF0A8270)
+              ],
+              begin: Alignment.bottomRight,
+              end: Alignment.topLeft,
+            )
+        ),
+        child: ListView(
+             children: [
+               ListTile(
 
-               leading:Icon (Icons.people),
-               title: Text('The Nature Conservancy'),
-               subtitle: Text('Go to the website'),
-               trailing: Icon(Icons.arrow_forward),
-               onTap: (){
-                  launchUrl (url,);
-               },
+                 leading:Icon (Icons.people),
+                 title: Text('The Nature Conservancy'),
+                 subtitle: Text('Go to the website'),
+                 trailing: Icon(Icons.arrow_forward),
+                 onTap: (){
+                    launchUrl (url,);
+                 },
 
-             ),
-             Divider(),
-             ListTile(
-               leading:Icon (Icons.people),
-               title: Text('Carbon FootPrint.com'),
-               subtitle: Text('Go to the website'),
-               trailing: Icon(Icons.arrow_forward),
-               onTap: (){
-                 launchUrl (url1,);
-               },
-             ),
-             Divider(),
-             ListTile(
-               leading:Icon (Icons.people),
-               title: Text('Globle footprint Network'),
-               subtitle: Text('Go to the website'),
-               trailing: Icon(Icons.arrow_forward),
-               onTap: (){
-                 launchUrl (url2,);
-               },
-             ),
-             Divider(),
-             ListTile(
-               leading:Icon (Icons.people),
-               title: Text('Inernational Arcitic Science Comittee'),
-               subtitle: Text('Go to the website'),
-               trailing: Icon(Icons.arrow_forward),
-               onTap: (){
-                 launchUrl (url3,);
-               },
-             ),
-             Divider(),
-             ListTile(
-               leading:Icon (Icons.people),
-               title: Text('Carbonfund'),
-               subtitle: Text('Go to the website'),
-               trailing: Icon(Icons.arrow_forward),
-               onTap: (){
-                 launchUrl (url4,);
-               },
-             ),
-           ],
-        padding: EdgeInsets.all(10),
-         )
+               ),
+               Divider(),
+               ListTile(
+                 leading:Icon (Icons.people),
+                 title: Text('Carbon FootPrint.com'),
+                 subtitle: Text('Go to the website'),
+                 trailing: Icon(Icons.arrow_forward),
+                 onTap: (){
+                   launchUrl (url1,);
+                 },
+               ),
+               Divider(),
+               ListTile(
+                 leading:Icon (Icons.people),
+                 title: Text('Globle footprint Network'),
+                 subtitle: Text('Go to the website'),
+                 trailing: Icon(Icons.arrow_forward),
+                 onTap: (){
+                   launchUrl (url2,);
+                 },
+               ),
+               Divider(),
+               ListTile(
+                 leading:Icon (Icons.people),
+                 title: Text('Inernational Arcitic Science Comittee'),
+                 subtitle: Text('Go to the website'),
+                 trailing: Icon(Icons.arrow_forward),
+                 onTap: (){
+                   launchUrl (url3,);
+                 },
+               ),
+               Divider(),
+               ListTile(
+                 leading:Icon (Icons.people),
+                 title: Text('Carbonfund'),
+                 subtitle: Text('Go to the website'),
+                 trailing: Icon(Icons.arrow_forward),
+                 onTap: (){
+                   launchUrl (url4,);
+                 },
+               ),
+             ],
+          padding: EdgeInsets.all(10),
+           ),
+      )
 
     );
   }

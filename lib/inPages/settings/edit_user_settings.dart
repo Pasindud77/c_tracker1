@@ -32,6 +32,16 @@ class _edit_user_profileState extends State<edit_user_profile> {
         title: Text('Edit user Profile'),
       ),
       body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFF7CFF6B),
+                Color(0xFF0A8270)
+              ],
+              begin: Alignment.bottomRight,
+              end: Alignment.topLeft,
+            )
+        ),
         child: ListView(
           children: [
             SizedBox(height:30,),
